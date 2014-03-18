@@ -1,0 +1,16 @@
+
+require 'fuburake'
+
+@solution = FubuRake::Solution.new do |sln|
+	sln.compile = {
+		:solutionfile => 'src/ZeroMQDemo.sln'
+	}
+				 
+	sln.assembly_info = {
+		:product_name => "ZeroMQDemo",
+		:copyright => 'Copyright 2013. All rights reserved.'
+	}
+	
+	sln.ripple_enabled = true
+	sln.fubudocs_enabled = false
+end

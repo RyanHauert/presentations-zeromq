@@ -13,8 +13,14 @@ namespace Client
     {
         static void Main(string[] args)
         {
-            MoveWindow(800, 200);
+            if (args.Length > 1)
+            {
+                int clientNumber = int.Parse(args[1]);
+                MoveWindow(800 + (25 * (clientNumber - 1)), 200 * clientNumber);
+            }
+
             DefaultExecution(args);
+            Console.ReadKey();
         }
     }
 }

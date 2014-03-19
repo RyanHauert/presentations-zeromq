@@ -11,24 +11,24 @@ namespace Server
         public override bool Execute(Demo1Input input)
         {
             using (var context = new Context())
-            using (var socket = context.Response())
+            using (var responder = context.Response())
             {
-                socket.Bind("tcp://*:5555");
-                HandleRequests(socket);
+                responder.Bind("tcp://*:5555");
+                HandleRequests(responder);
             }
 
             return true;
         }
 
-        private static void HandleRequests(Socket socket)
+        private static void HandleRequests(Socket responder)
         {
             while (true)
             {
-                byte[] request = socket.Recv();
+                byte[] request = responder.Recv();
                 string message = Encoding.Unicode.GetString(request);
                 Console.WriteLine("Received: {0}", message);
 
-                socket.Send(Encoding.Unicode.GetBytes("World")); 
+                responder.Send(Encoding.Unicode.GetBytes("World")); 
             }
         }
     }

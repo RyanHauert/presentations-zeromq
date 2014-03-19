@@ -8,7 +8,8 @@ namespace ZeroMQDemo
         public override bool Execute(Demo2Input input)
         {
             Server.Start("demo2");
-            Client.Start("demo2");
+            Client.Start("demo2 1 84101");
+            Client.Start("demo2 2 0");
             return true;
         }
     }

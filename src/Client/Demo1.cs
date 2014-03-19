@@ -12,22 +12,22 @@ namespace Client
         public override bool Execute(Demo1Input input)
         {
             using (var context = new Context())
-            using (var socket = context.Request())
+            using (var requester = context.Request())
             {
-                socket.Connect("tcp://localhost:5555");
-                SendRequests(socket);
+                requester.Connect("tcp://localhost:5555");
+                SendRequests(requester);
             }
 
             return true;
         }
 
-        private static void SendRequests(Socket socket)
+        private static void SendRequests(Socket requester)
         {
             var message = Encoding.Unicode.GetBytes("Hello");
             while (true)
             {
-                socket.Send(message);
-                var response = socket.Recv();
+                requester.Send(message);
+                var response = requester.Recv();
                 Console.WriteLine("Response: {0}", Encoding.Unicode.GetString(response));
                 Thread.Sleep(1000);
             }

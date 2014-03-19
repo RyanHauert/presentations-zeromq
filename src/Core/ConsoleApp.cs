@@ -14,6 +14,16 @@ namespace Core
             return commandFactory;
         }
 
+        protected static void DefaultExecution(string[] args)
+        {
+            var commands = Bootstrap(Assembly.GetCallingAssembly());
+            var executor = new CommandExecutor(commands);
+            if (args.Length > 0)
+                executor.Execute(args);
+            else
+                executor.Execute("help");
+        }
+        
         protected static void MoveWindow(int left, int top)
         {
             var handle = GetConsoleWindow();

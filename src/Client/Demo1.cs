@@ -7,7 +7,7 @@ using FubuCore.CommandLine;
 namespace Client
 {
     [CommandDescription("Runs the first demo client", Name = "demo1")]
-    public class Demo1Command : FubuCommand<Demo1Input>
+    public class Demo1 : FubuCommand<Demo1Input>
     {
         public override bool Execute(Demo1Input input)
         {

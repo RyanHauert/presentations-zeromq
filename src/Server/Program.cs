@@ -15,13 +15,7 @@ namespace Server
         static void Main(string[] args)
         {
             MoveWindow(100, 200);
-
-            var commands = Bootstrap(Assembly.GetExecutingAssembly());
-            var executor = new CommandExecutor(commands);
-            if (args.Length > 0)
-                executor.Execute(args);
-            else
-                executor.Execute("help");
+            DefaultExecution(args);
         }
     }
 }

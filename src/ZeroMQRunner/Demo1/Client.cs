@@ -2,23 +2,26 @@
 using System.Text;
 using System.Threading;
 using fszmq;
-using FubuCore.CommandLine;
 
-namespace Client
+namespace ZeroMQRunner.Demo1
 {
-    [CommandDescription("Runs the first demo client", Name = "demo1")]
-    public class Demo1 : FubuCommand<Demo1Input>
+    public class Client : IDemo1Endpoint
     {
-        public override bool Execute(Demo1Input input)
+        public string Type
         {
+            get { return "client"; }
+        }
+
+        public void Execute()
+        {
+            ConsoleApp.MoveWindow(800, 200);
+
             using (var context = new Context())
             using (var requester = context.Request())
             {
                 requester.Connect("tcp://localhost:5555");
                 SendRequests(requester);
             }
-
-            return true;
         }
 
         private static void SendRequests(Socket requester)
@@ -32,9 +35,5 @@ namespace Client
                 Thread.Sleep(1000);
             }
         }
-    }
-
-    public class Demo1Input
-    {
     }
 }

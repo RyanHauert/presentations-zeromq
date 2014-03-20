@@ -3,7 +3,7 @@ using System.Reflection;
 using System.Runtime.InteropServices;
 using FubuCore.CommandLine;
 
-namespace Core
+namespace ZeroMQRunner
 {
     public class ConsoleApp
     {
@@ -23,8 +23,8 @@ namespace Core
             else
                 executor.Execute("help");
         }
-        
-        protected static void MoveWindow(int left, int top)
+
+        public static void MoveWindow(int left, int top)
         {
             var handle = GetConsoleWindow();
             RECT rect = new RECT();
@@ -41,7 +41,7 @@ namespace Core
         [DllImport("user32.dll")]
         private extern static bool MoveWindow(IntPtr hWnd, int X, int Y, int nWidth, int nHeight, bool bRepaint);
 
-        public struct RECT
+        private struct RECT
         {
             public int left;
             public int top;

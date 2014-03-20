@@ -3,23 +3,26 @@ using System.Text;
 using System.Threading;
 using fszmq;
 using FubuCore;
-using FubuCore.CommandLine;
 
-namespace Server
+namespace ZeroMQRunner.Demo2
 {
-    [CommandDescription("Runs the second demo server", Name = "demo2")]
-    public class Demo2 : FubuCommand<Demo2Input>
+    public class Server : IDemo2Endpoint
     {
-        public override bool Execute(Demo2Input input)
+        public string Type
         {
+            get { return "server"; }
+        }
+
+        public void Execute(Demo2Input input)
+        {
+            ConsoleApp.MoveWindow(100, 200);
+
             using (var context = new Context())
             using (var publisher = context.Publish())
             {
                 publisher.Bind("tcp://*:5556");
                 PublishMessages(publisher);
             }
-
-            return true;
         }
 
         private static void PublishMessages(Socket publisher)
@@ -43,9 +46,5 @@ namespace Server
                 Thread.Sleep(500);
             }
         }
-    }
-
-    public class Demo2Input
-    {
     }
 }

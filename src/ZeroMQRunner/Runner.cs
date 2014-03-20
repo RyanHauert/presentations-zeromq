@@ -2,11 +2,11 @@
 
 namespace ZeroMQDemo
 {
-    public static class Server
+    public static class Runner
     {
         public static void Start(string arguments)
         {
-            Process.Start("Server.exe", arguments);
+            Process.Start("ZeroMQRunner.exe", arguments);
         }
     }
 }

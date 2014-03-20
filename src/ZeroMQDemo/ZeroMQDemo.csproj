@@ -33,9 +33,6 @@
     <StartupObject>ZeroMQDemo.Program</StartupObject>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="fszmq">
-      <HintPath>..\packages\fszmq\lib\net45\fszmq.dll</HintPath>
-    </Reference>
     <Reference Include="FubuCore">
       <HintPath>..\packages\FubuCore\lib\FubuCore.dll</HintPath>
     </Reference>
@@ -53,13 +50,9 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\Client\Client.csproj">
-      <Project>{ea59758b-a146-4338-84a2-3ae5f6b8a2b3}</Project>
-      <Name>Client</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\Server\Server.csproj">
-      <Project>{1551cc06-1633-4de8-abcd-f71fdcba9a18}</Project>
-      <Name>Server</Name>
+    <ProjectReference Include="..\ZeroMQRunner\ZeroMQRunner.csproj">
+      <Project>{1551CC06-1633-4DE8-ABCD-F71FDCBA9A18}</Project>
+      <Name>ZeroMQRunner</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

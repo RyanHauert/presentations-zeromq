@@ -63,6 +63,12 @@
     <Compile Include="Demo3\Sink.cs" />
     <Compile Include="Demo3\Ventilator.cs" />
     <Compile Include="Demo3\Worker.cs" />
+    <Compile Include="Demo4\Client.cs" />
+    <Compile Include="Demo4\Demo4Command.cs" />
+    <Compile Include="Demo4\Demo4Input.cs" />
+    <Compile Include="Demo4\IDemo4Endpoint.cs" />
+    <Compile Include="Demo4\Proxy.cs" />
+    <Compile Include="Demo4\Server.cs" />
     <Compile Include="Endpoint.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

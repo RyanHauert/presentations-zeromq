@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Text;
-using System.Threading;
 using fszmq;
 using FubuCore;
 
@@ -20,15 +19,11 @@ namespace ZeroMQRunner.Demo4
 
         private static void HandleRequests(Socket responder, string nodeId)
         {
-            var random = new Random();
             while (true)
             {
                 byte[] request = responder.Recv();
                 string message = Encoding.Unicode.GetString(request);
                 Console.WriteLine(message);
-
-                // Simulate work
-                //Thread.Sleep(random.Next(100, 500));
 
                 responder.Send(Encoding.Unicode.GetBytes("Hello from server {0}".ToFormat(nodeId)));
             }

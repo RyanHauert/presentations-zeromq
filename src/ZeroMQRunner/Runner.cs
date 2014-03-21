@@ -15,7 +15,16 @@ namespace ZeroMQDemo
 
         public static void Reset()
         {
-            RunningProcesses.Each(x => x.Kill());
+            RunningProcesses.Each(x =>
+            {
+                try
+                {
+                    x.Kill();
+                }
+                catch
+                {
+                }
+            });
             RunningProcesses.Clear();
         }
     }

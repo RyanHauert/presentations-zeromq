@@ -2,7 +2,7 @@
 
 namespace ZeroMQDemo
 {
-    [CommandDescription("Resets for another demo", Name = "reset")]
+    [CommandDescription("Stops the current demo and closes any open console windows", Name = "reset")]
     public class ResetCommand : FubuCommand<ResetInput>
     {
         public override bool Execute(ResetInput input)

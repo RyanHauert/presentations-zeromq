@@ -38,8 +38,11 @@ namespace ZeroMQRunner.Demo2
 
         public void PositionWindow(Demo2Input input)
         {
+            Console.SetWindowSize(45, 20);
+            Console.SetBufferSize(45, 20);
+
             int clientNumber = int.Parse(input.ClientIdFlag);
-            ConsoleApp.MoveWindow(800 + (25 * (clientNumber - 1)), 100 + (200 * (clientNumber - 1)));
+            ConsoleApp.MoveWindow(450 + (25 * (clientNumber - 1)), 100 + (200 * (clientNumber - 1)));
         }
     }
 }

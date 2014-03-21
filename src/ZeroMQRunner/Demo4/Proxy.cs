@@ -1,4 +1,5 @@
-﻿using fszmq;
+﻿using System;
+using fszmq;
 
 namespace ZeroMQRunner.Demo4
 {
@@ -13,13 +14,16 @@ namespace ZeroMQRunner.Demo4
                 frontend.Bind("tcp://*:5559");
                 backend.Bind("tcp://*:5560");
 
+                Console.WriteLine("I'm the proxy!");
                 frontend.Proxy(backend);
             }
         }
 
         public void PositionWindow(Demo4Input input)
         {
-            ConsoleApp.MoveWindow(400, 300);
+            Console.SetWindowSize(45, 15);
+            Console.SetBufferSize(45, 15);
+            ConsoleApp.MoveWindow(875, 300);
         }
     }
 }

@@ -1,4 +1,4 @@
-﻿using System.Threading;
+﻿using FubuCore;
 using FubuCore.CommandLine;
 
 namespace ZeroMQDemo
@@ -8,11 +8,17 @@ namespace ZeroMQDemo
     {
         public override bool Execute(Demo3Input input)
         {
-            Runner.Start("demo3 ventilator");
             Runner.Start("demo3 sink");
-            Runner.Start("demo3 worker -w 1");
-            Runner.Start("demo3 worker -w 2");
-            Runner.Start("demo3 worker -w 3");
+
+            int workerCount = int.Parse(input.WorkerCountFlag ?? "3");
+            for (int i = 0; i < workerCount; i++)
+            {
+                Runner.Start("demo3 worker -w {0}".ToFormat(i + 1));
+            }
+            //Runner.Start("demo3 worker -w 1");
+            //Runner.Start("demo3 worker -w 2");
+            //Runner.Start("demo3 worker -w 3");
+            Runner.Start("demo3 ventilator");
 
             return true;
         }
@@ -20,5 +26,6 @@ namespace ZeroMQDemo
 
     public class Demo3Input
     {
+        public string WorkerCountFlag { get; set; }
     }
 }

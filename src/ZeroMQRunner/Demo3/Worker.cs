@@ -41,8 +41,11 @@ namespace ZeroMQRunner.Demo3
 
         public void PositionWindow(Demo3Input input)
         {
+            Console.SetWindowSize(45, 15);
+            Console.SetBufferSize(45, 15);
+
             int workerNumber = int.Parse(input.WorkerNumberFlag);
-            ConsoleApp.MoveWindow(800 + (75 * (workerNumber - 1)), 100 + (200 * (workerNumber - 1)));
+            ConsoleApp.MoveWindow(400 + (100 * (workerNumber - 1)), 100 + (75 * (workerNumber - 1)));
         }
     }
 }

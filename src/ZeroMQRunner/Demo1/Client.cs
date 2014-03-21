@@ -31,7 +31,9 @@ namespace ZeroMQRunner.Demo1
 
         public void PositionWindow()
         {
-            ConsoleApp.MoveWindow(800, 100);
+            Console.SetWindowSize(45, 20);
+            Console.SetBufferSize(45, 20);
+            ConsoleApp.MoveWindow(450, 100);
         }
     }
 }

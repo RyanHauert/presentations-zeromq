@@ -14,10 +14,10 @@ namespace ZeroMQRunner.Demo3
             {
                 receiver.Bind("tcp://*:5558");
 
-                // Assume we are waiting for 500 workitems
+                // Assume we are waiting for 300 workitems
                 var message = receiver.Recv();
                 var stopwatch = Stopwatch.StartNew();
-                for (int i = 0; i < 500; i++)
+                for (int i = 0; i < 300; i++)
                 {
                     var workerId = Encoding.Unicode.GetString(message);
                     Console.WriteLine("Worker {0} has finished a workitem", workerId);
@@ -31,7 +31,9 @@ namespace ZeroMQRunner.Demo3
 
         public void PositionWindow(Demo3Input input)
         {
-            ConsoleApp.MoveWindow(100, 500);
+            Console.SetWindowSize(45, 15);
+            Console.SetBufferSize(45, 15);
+            ConsoleApp.MoveWindow(25, 300);
         }
     }
 }

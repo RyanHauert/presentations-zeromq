@@ -4,13 +4,8 @@ using fszmq;
 
 namespace ZeroMQRunner.Demo1
 {
-    public class Server : IDemo1Endpoint
+    public class Server : Endpoint, IDemo1Endpoint
     {
-        public string Type
-        {
-            get { return "server"; }
-        }
-
         public void Execute()
         {
             ConsoleApp.MoveWindow(100, 200);

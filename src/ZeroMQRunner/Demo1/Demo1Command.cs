@@ -3,7 +3,7 @@
 namespace ZeroMQRunner.Demo1
 {
     [CommandDescription("Runs the first demo", Name = "demo1")]
-    public class Demo1 : FubuCommand<Demo1Input>
+    public class Demo1Command : FubuCommand<Demo1Input>
     {
         public override bool Execute(Demo1Input input)
         {

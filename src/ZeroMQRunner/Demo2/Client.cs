@@ -4,13 +4,8 @@ using fszmq;
 
 namespace ZeroMQRunner.Demo2
 {
-    public class Client : IDemo2Endpoint
+    public class Client : Endpoint, IDemo2Endpoint
     {
-        public string Type
-        {
-            get { return "client"; }
-        }
-
         public void Execute(Demo2Input input)
         {
             MoveConsoleWindow(input);

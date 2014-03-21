@@ -6,13 +6,8 @@ using FubuCore;
 
 namespace ZeroMQRunner.Demo2
 {
-    public class Server : IDemo2Endpoint
+    public class Server : Endpoint, IDemo2Endpoint
     {
-        public string Type
-        {
-            get { return "server"; }
-        }
-
         public void Execute(Demo2Input input)
         {
             ConsoleApp.MoveWindow(100, 200);

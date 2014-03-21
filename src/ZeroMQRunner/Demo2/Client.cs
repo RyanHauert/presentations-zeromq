@@ -8,8 +8,6 @@ namespace ZeroMQRunner.Demo2
     {
         public void Execute(Demo2Input input)
         {
-            MoveConsoleWindow(input);
-
             using (var context = new Context())
             using (var subscriber = context.Subscribe())
             {
@@ -18,12 +16,6 @@ namespace ZeroMQRunner.Demo2
 
                 ListenForEvents(subscriber);
             }
-        }
-
-        private static void MoveConsoleWindow(Demo2Input input)
-        {
-            int clientNumber = int.Parse(input.ClientIdFlag);
-            ConsoleApp.MoveWindow(800 + (25 * (clientNumber - 1)), 200 * clientNumber);
         }
 
         private void AddSubscription(Socket subscriber, string zipCode)
@@ -42,6 +34,12 @@ namespace ZeroMQRunner.Demo2
                 var values = Encoding.Unicode.GetString(message).Split('|');
                 Console.WriteLine("ZipCode: {0}, Temp: {1}, Humidity: {2}", values[0], values[1], values[2]);
             }
+        }
+
+        public void PositionWindow(Demo2Input input)
+        {
+            int clientNumber = int.Parse(input.ClientIdFlag);
+            ConsoleApp.MoveWindow(800 + (25 * (clientNumber - 1)), 100 + (200 * (clientNumber - 1)));
         }
     }
 }

@@ -9,8 +9,6 @@ namespace ZeroMQRunner.Demo3
     {
         public void Execute(Demo3Input input)
         {
-            MoveConsoleWindow(input);
-
             using (var context = new Context())
             using (var consumer = context.Pull())
             using (var reporter = context.Push())
@@ -20,12 +18,6 @@ namespace ZeroMQRunner.Demo3
 
                 DoWork(consumer, reporter, input.WorkerNumberFlag);
             }
-        }
-
-        private void MoveConsoleWindow(Demo3Input input)
-        {
-            int workerNumber = int.Parse(input.WorkerNumberFlag);
-            ConsoleApp.MoveWindow(800 + (75 * (workerNumber - 1)), 200 * workerNumber);
         }
 
         private void DoWork(Socket consumer, Socket reporter, string workerId)
@@ -45,6 +37,12 @@ namespace ZeroMQRunner.Demo3
             int sleepTime = BitConverter.ToInt32(message, 0);
             Console.WriteLine("Received work: {0} ms", sleepTime);
             Thread.Sleep(sleepTime);
+        }
+
+        public void PositionWindow(Demo3Input input)
+        {
+            int workerNumber = int.Parse(input.WorkerNumberFlag);
+            ConsoleApp.MoveWindow(800 + (75 * (workerNumber - 1)), 100 + (200 * (workerNumber - 1)));
         }
     }
 }

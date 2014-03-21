@@ -7,14 +7,12 @@ namespace ZeroMQRunner.Demo3
     {
         public void Execute(Demo3Input input)
         {
-            ConsoleApp.MoveWindow(100, 100);
-
             using (var context = new Context())
             using (var sender = context.Push())
             {
                 sender.Bind("tcp://*:5557");
 
-                Console.WriteLine("Press enter when the workers are ready: ");
+                Console.Write("Press enter when the workers are ready: ");
                 Console.ReadKey();
 
                 Console.WriteLine("Sending tasks to workers...");
@@ -30,6 +28,11 @@ namespace ZeroMQRunner.Demo3
                     sender.Send(message);
                 }
             }
+        }
+
+        public void PositionWindow(Demo3Input input)
+        {
+            ConsoleApp.MoveWindow(100, 100);
         }
     }
 }

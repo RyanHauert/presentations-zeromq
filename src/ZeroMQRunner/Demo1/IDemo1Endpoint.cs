@@ -4,5 +4,6 @@
     {
         string Type { get; }
         void Execute();
+        void PositionWindow();
     }
 }

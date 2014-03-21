@@ -10,8 +10,6 @@ namespace ZeroMQRunner.Demo2
     {
         public void Execute(Demo2Input input)
         {
-            ConsoleApp.MoveWindow(100, 200);
-
             using (var context = new Context())
             using (var publisher = context.Publish())
             {
@@ -40,6 +38,11 @@ namespace ZeroMQRunner.Demo2
                 publisher.Send(Encoding.Unicode.GetBytes(message));
                 Thread.Sleep(500);
             }
+        }
+
+        public void PositionWindow(Demo2Input input)
+        {
+            ConsoleApp.MoveWindow(100, 100);
         }
     }
 }

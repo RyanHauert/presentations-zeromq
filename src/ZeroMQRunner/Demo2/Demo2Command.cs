@@ -8,6 +8,7 @@ namespace ZeroMQRunner.Demo2
         public override bool Execute(Demo2Input input)
         {
             var endpoint = ReflectionHelper.FindMatchingInstance<IDemo2Endpoint>(x => x.Type == input.Type);
+            endpoint.PositionWindow(input);
             endpoint.Execute(input);
             return true;
         }

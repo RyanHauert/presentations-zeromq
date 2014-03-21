@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Reflection;
 using FubuCore.CommandLine;
+using ZeroMQRunner;
 
 namespace ZeroMQDemo
 {
@@ -8,6 +9,8 @@ namespace ZeroMQDemo
     {
         static void Main(string[] args)
         {
+            ConsoleApp.MoveWindow(25, 25);
+
             var commands = Bootstrap();
             var executor = new CommandExecutor(commands);
             var command = Help(executor);

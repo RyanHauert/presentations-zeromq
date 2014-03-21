@@ -8,8 +8,6 @@ namespace ZeroMQRunner.Demo1
     {
         public void Execute()
         {
-            ConsoleApp.MoveWindow(100, 200);
-
             using (var context = new Context())
             using (var responder = context.Response())
             {
@@ -28,6 +26,11 @@ namespace ZeroMQRunner.Demo1
 
                 responder.Send(Encoding.Unicode.GetBytes("World"));
             }
+        }
+
+        public void PositionWindow()
+        {
+            ConsoleApp.MoveWindow(100, 100);
         }
     }
 }

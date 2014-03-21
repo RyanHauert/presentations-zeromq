@@ -9,8 +9,6 @@ namespace ZeroMQRunner.Demo1
     {
         public void Execute()
         {
-            ConsoleApp.MoveWindow(800, 200);
-
             using (var context = new Context())
             using (var requester = context.Request())
             {
@@ -29,6 +27,11 @@ namespace ZeroMQRunner.Demo1
                 Console.WriteLine("Response: {0}", Encoding.Unicode.GetString(response));
                 Thread.Sleep(1000);
             }
+        }
+
+        public void PositionWindow()
+        {
+            ConsoleApp.MoveWindow(800, 100);
         }
     }
 }

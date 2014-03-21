@@ -8,6 +8,7 @@ namespace ZeroMQRunner.Demo3
         public override bool Execute(Demo3Input input)
         {
             var endpoint = ReflectionHelper.FindMatchingInstance<IDemo3Endpoint>(x => x.Type == input.Type);
+            endpoint.PositionWindow(input);
             endpoint.Execute(input);
             return true;
         }

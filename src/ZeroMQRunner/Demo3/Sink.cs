@@ -9,8 +9,6 @@ namespace ZeroMQRunner.Demo3
     {
         public void Execute(Demo3Input input)
         {
-            ConsoleApp.MoveWindow(100, 600);
-
             using (var context = new Context())
             using (var receiver = context.Pull())
             {
@@ -29,6 +27,11 @@ namespace ZeroMQRunner.Demo3
                 stopwatch.Stop();
                 Console.WriteLine("Total elapsed time: {0} ms", stopwatch.ElapsedMilliseconds);
             }
+        }
+
+        public void PositionWindow(Demo3Input input)
+        {
+            ConsoleApp.MoveWindow(100, 500);
         }
     }
 }

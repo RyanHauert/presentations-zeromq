@@ -4,5 +4,6 @@
     {
         string Type { get; }
         void Execute(Demo3Input input);
+        void PositionWindow(Demo3Input input);
     }
 }
